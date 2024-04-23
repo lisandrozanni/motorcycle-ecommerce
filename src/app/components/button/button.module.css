@@ -1,0 +1,25 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  border-radius: 8px;
+  background-color: var(--primary-color);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button p {
+  font-weight: 500;
+  line-height: 19.09px;
+  color: var(--white);
+}
+
+.button:hover {
+  background-color: var(--hover-color);
+}
+
+.button:active {
+  background-color: var(--active-color);
+  transform: scale(0.98);
+}

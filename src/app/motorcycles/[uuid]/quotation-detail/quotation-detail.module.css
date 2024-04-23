@@ -1,0 +1,117 @@
+.accessoriesContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.accessoriesList {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  max-height: 500px;
+  margin-bottom: 16px;
+}
+
+.accessoryCard {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  border: 1px solid var(--border-color);
+  padding: 3px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.infoCard {
+  display: flex;
+}
+
+.infoCard p {
+  margin-top: 3px;
+}
+
+.infoCard img {
+  width: 100px;
+  height: auto;
+  border-radius: 8px;
+  margin-right: 8px;
+}
+
+.cardTitle {
+  font-weight: 600;
+  color: var(--dark-violet);
+}
+
+.price {
+  color: var(--secondary-color);
+}
+
+.selectedCardContainer {
+  overflow-y: auto;
+  width: 50%;
+  max-height: 500px;
+}
+
+.selectedCardContainer h2,
+.selectedCardContainer h3 {
+  font-weight: 500;
+  color: var(--dark-violet);
+}
+
+.selectedCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f7f7f7;
+  border-radius: 8px;
+  padding: 8px 16px;
+  margin: 8px 0 8px;
+}
+
+.selectedCard span {
+  color: var(--dark-violet);
+}
+
+.quoteContainer {
+  overflow-y: auto;
+  max-height: 500px;
+  margin-bottom: 16px;
+}
+
+.quoteContainer h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dark-violet);
+}
+
+.quoteTitle {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 23.87px;
+  color: var(--dark-violet);
+  margin-bottom: 15px;
+}
+
+.quoteDescription {
+  font-weight: 500;
+  line-height: 19.09px;
+  color: var(--gray);
+  margin: 20px 0 20px;
+}
+
+.quoteInfo {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.quotePrice {
+  font-weight: 700;
+  line-height: 19.09px;
+  color: var(--secondary-color);
+}
+
+.quoteValue {
+  font-weight: 700;
+  line-height: 19.09px;
+  color: var(--dark-violet);
+}

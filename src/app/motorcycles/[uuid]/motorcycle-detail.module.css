@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 30px 100px;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 635px;
+}
+
+.quotation {
+  width: 635px;
+  height: 100%;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 23.87px;
+  color: var(--dark-violet);
+  margin-bottom: 10px;
+}
+
+.description {
+  font-weight: 500;
+  line-height: 19.09px;
+  color: var(--secondary-color);
+}
