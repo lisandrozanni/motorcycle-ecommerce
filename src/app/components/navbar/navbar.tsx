@@ -2,31 +2,35 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation"
+import { usePathname } from 'next/navigation'
 
 import styles from "./navbar.module.css";
 
-interface Link {
+interface NavbarLink {
   name: string;
   href: string;
 }
 
-const links: Link[]  = [
+const links: NavbarLink[] = [
   { name: "Motos", href: "/motorcycles" },
-  { name: "Accesorios", href: "/accessories" }
+  { name: "Accesorios", href: "/accessories" },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className={styles.container}>
+    <nav className={styles.navbar}>
       <Link href={"/"} className={styles.logo}>
-        <Image src="/Brand-Navbar.svg" width={144} height={30} alt="Logo" priority />
+        <Image src="/Brand-Navbar.svg" width={144} height={30} alt="Logo" />
       </Link>
-      <div className={styles.linksContainer}>
+      <div className={styles.links}>
         {links.map(({ name, href }) => (
-          <a key={name} href={href} className={pathname.includes(href) ? styles.activeLink : styles.link}>
+          <a
+            key={name} 
+            href={href}
+            className={pathname.includes(href) ? styles.activeLink : styles.link}
+          >
             <p>{name}</p>
           </a>
         ))}

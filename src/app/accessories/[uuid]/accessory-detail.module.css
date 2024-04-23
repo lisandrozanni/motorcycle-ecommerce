@@ -1,17 +1,17 @@
-.container {
+.accessoryDetail {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 30px 100px;
 }
 
-.imageContainer {
+.header {
   width: 635px;
   height: 307px;
   margin-right: 20px;
 }
 
-.image {
+.accessoryImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -19,12 +19,12 @@
   border-radius: 8px;
 }
 
-.info {
+.details {
   width: 445px;
   height: 100%;
 }
 
-.name {
+.accessoryName {
   font-size: 20px;
   font-weight: 700;
   line-height: 23.87px;
@@ -32,14 +32,14 @@
   margin-bottom: 10px;
 }
 
-.description {
+.accessoryDescription {
   font-weight: 500;
   line-height: 19.09px;
   color: var(--secondary-color);
   margin-bottom: 20px;
 }
 
-.link {
+.purchaseLink {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,11 +53,11 @@
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.link:hover {
+.purchaseLink:hover {
   background-color: var(--hover-color);
 }
 
-.link:active {
+.purchaseLink:active {
   background-color: var(--active-color);
   transform: scale(0.98);
 }

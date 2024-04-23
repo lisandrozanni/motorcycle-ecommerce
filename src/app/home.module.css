@@ -1,16 +1,21 @@
-.container {
+.page {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 30px 0 100px;
 }
 
-.image {
+.headerImage {
   margin-bottom: 20px;
 }
 
-.title {
+.content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.mainTitle {
   font-size: 31.25px;
   font-weight: 700;
   line-height: 37.29px;

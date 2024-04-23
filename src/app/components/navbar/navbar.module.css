@@ -1,4 +1,4 @@
-.container {
+.navbar {
   display: flex;
   align-items: center;
   height: 70px;
@@ -10,14 +10,14 @@
   left: 50px;
 }
 
-.linksContainer {
+.links {
   display: flex;
   justify-content: center;
   width: 100%;
   gap: 30px;
 }
 
-.linksContainer a {
+.links a {
   transition: color 0.3s ease;
 }
 

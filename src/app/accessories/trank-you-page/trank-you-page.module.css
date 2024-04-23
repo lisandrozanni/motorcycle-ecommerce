@@ -1,4 +1,4 @@
-.container {
+.thankYouSection {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,7 +6,7 @@
   margin: 25px 0 50px;
 }
 
-.header {
+.thankYouHeader {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,7 +14,7 @@
   margin-bottom: 40px;
 }
 
-.title {
+.thankYouTitle {
   font-size: 25px;
   font-weight: 700;
   line-height: 29.83px;
@@ -22,13 +22,13 @@
   margin: 5px 0 10px;
 }
 
-.subtitle {
+.thankYouDescription {
   font-weight: 500;
   line-height: 19.09px;
   color: var(--secondary-color);
 }
 
-.summary {
+.purchaseSummary {
   display: flex;
   justify-self: center;
   align-items: center;
@@ -46,12 +46,6 @@
   align-self: flex-start;
 }
 
-.divisor {
-  width: 510px;
-  border-color: var(--light-gray);
-  margin: 15px 0 15px;
-}
-
 .productsTitle {
   font-weight: 700;
   line-height: 19.36px;
@@ -59,7 +53,7 @@
   margin-bottom: 15px;
 }
 
-.products {
+.productDetails {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -71,4 +65,10 @@
   font-weight: 500;
   line-height: 18.15px;
   color: rgba(0, 0, 0, 0.7);
+}
+
+.divider {
+  width: 510px;
+  border-color: var(--light-gray);
+  margin: 15px 0 15px;
 }

@@ -1,10 +1,18 @@
-import { convertCurrency, getAccessories, getMotorcycleDetail } from "@/app/lib/data";
+import {
+  convertCurrency,
+  getAccessories,
+  getMotorcycleDetail
+} from "@/app/lib/data";
 import Carousel from "@/app/components/carousel/carousel";
 import QuotationDetail from "./quotation-detail/quotation-detail";
 
 import styles from "./motorcycle-detail.module.css";
 
-export default async function MotorcycleDetail({ params: { uuid } }: { params: { uuid: string } }) {
+export default async function MotorcycleDetail({
+  params: { uuid },
+}: {
+  params: { uuid: string };
+}) {
   const motorcycle = await getMotorcycleDetail(uuid);
   const accessories = await getAccessories();
 
@@ -13,14 +21,20 @@ export default async function MotorcycleDetail({ params: { uuid } }: { params: {
   const convertedPrice = await convertCurrency(price || 0, "ARS");
 
   return (
-    <section className={styles.container}>
-      <div className={styles.info}>
+    <section className={styles.motorcycleDetail}>
+      <div className={styles.motorcycleInfo}>
         {images && <Carousel slides={images} />}
-        <p className={styles.name}>{name}</p>
-        <p className={styles.description}>{description}</p>
+        <p className={styles.motorcycleName}>{name}</p>
+        <p className={styles.motorcycleDescription}>{description}</p>
       </div>
-      <div className={styles.quotation}>
-        <QuotationDetail motorcycleName={name} uuid={uuid} motorcyclePrice={convertedPrice || ""} motorcycleDescription={description} accessories={accessories} />
+
+      <div className={styles.quotationSection}>
+        <QuotationDetail
+          motorcycleName={name}
+          uuid={uuid} motorcyclePrice={convertedPrice || ""}
+          motorcycleDescription={description}
+          accessories={accessories}
+        />
       </div>
     </section>
   );

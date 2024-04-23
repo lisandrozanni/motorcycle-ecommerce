@@ -11,13 +11,13 @@ export default async function AccessoryDetail({ params: { uuid } }: { params: { 
   const { name, image, description, price } = response ?? {};
 
   return (
-    <section className={styles.container}>
-      <div className={styles.imageContainer}>
-        {image && <Image src={image} width={635} height={307} alt="Motorcycle accessory" className={styles.image} />}
-      </div>
-      <div className={styles.info}>
-        <p className={styles.name}>{name}</p>
-        <p className={styles.description}>{description}</p>
+    <section className={styles.accessoryDetail}>
+      <header className={styles.header}>
+        {image && <Image src={image} width={635} height={307} alt="Accesorio de moto" className={styles.accessoryImage} />}
+      </header>
+      <section className={styles.details}>
+        <h1 className={styles.accessoryName}>{name}</h1>
+        <p className={styles.accessoryDescription}>{description}</p>
         <Link
           href={{
             pathname: "/accessories/trank-you-page",
@@ -26,11 +26,11 @@ export default async function AccessoryDetail({ params: { uuid } }: { params: { 
               price: price && formatNumber(price)
             }
           }}
-          className={styles.link}
+          className={styles.purchaseLink}
         >
           Comprar
         </Link>
-      </div>
+      </section>
     </section>
   );
 }

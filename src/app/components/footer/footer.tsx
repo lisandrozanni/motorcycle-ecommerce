@@ -11,62 +11,102 @@ import styles from "./footer.module.css";
 
 export default async function Footer() {
   return (
-    <footer className={styles.container}>
+    <footer className={styles.footer}>
       <div>
-        <Image src="/Brand-Footer.svg" width={144} height={30} alt="Logo" className={styles.logo} />
-        <hr className={styles.divisor} />
-        <div className={styles.linksContainer}>
-          <div className={styles.links}>
-            <p className={styles.linkTitle}>Shop</p>
-            <p>Accesorios</p>
-            <p>Indumentaria</p>
-          </div>
-          <div className={styles.links}>
-            <p className={styles.linkTitle}>Motos</p>
-            <p>Bonneville T120</p>
-            <p>Meteor 350</p>
-            <p>Heritage Classic</p>
-            <p>Street Bob 114</p>
-            <p>Fat Bob 114</p>
-          </div>
-          <div className={styles.links}>
-            <p className={styles.linkTitle}>Dirección</p>
-            <p>Av. Del Libertador 3304, Vicente López, 1637, Argentina</p>
-            <p>info@revicentelopez.com</p>
-            <p>11 3221 9220</p>
-          </div>
-          <div className={styles.links}>
-            <p className={styles.linkTitle}>Sobre nosotros</p>
+        <Image
+          src="/Brand-Footer.svg"
+          width={144}
+          height={30}
+          alt="Logo"
+          className={styles.logo} 
+        />
+        <hr className={styles.divider} />
+        <div className={styles.linkSections}>
+          <section className={styles.links}>
+            <h4 className={styles.linkTitle}>Shop</h4>
+            <ul className={styles.linksList}>
+              <li>Accesorios</li>
+              <li>Indumentaria</li>
+            </ul>
+          </section>
+          <section className={styles.links}>
+            <h4 className={styles.linkTitle}>Motos</h4>
+            <ul className={styles.linksList}>
+              <li>Bonneville T120</li>
+              <li>Meteor 350</li>
+              <li>Heritage Classic</li>
+              <li>Street Bob 114</li>
+              <li>Fat Bob 114</li>
+            </ul>
+          </section>
+          <section className={styles.links}>
+            <h4 className={styles.linkTitle}>Dirección</h4>
+            <ul className={styles.linksList}>
+              <li>
+                <address>Av. Del Libertador 3304, Vicente López, 1637, Argentina</address>
+              </li>
+              <li>info@revicentelopez.com</li>
+              <li>11 3221 9220</li>
+            </ul>
+          </section>
+          <section className={styles.links}>
+            <h4 className={styles.linkTitle}>Sobre nosotros</h4>
+            <section>
             <p>Contáctanos</p>
-            <div className={styles.social}>
-              <Link href="https://www.facebook.com/simplimuv" target="_blank" rel="noopener noreferrer">
-                <TiSocialFacebook size={24} />
-              </Link>
-              <Link href="https://api.whatsapp.com/send/?phone=2938749238&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">
-                <FaWhatsapp size={24} />
-              </Link>
-              <Link href="https://www.instagram.com/simplimuv" target="_blank" rel="noopener noreferrer">
-                <TiSocialInstagram size={24} />
-              </Link>
-              <Link href="https://www.youtube.com/channel/UCJhw-X3I1qGE0BITzMPj3HQ" target="_blank" rel="noopener noreferrer">
-                <TiSocialYoutube size={24} />
-              </Link>
-            </div>
-          </div>
+              <ul className={styles.social}>
+                <li>
+                  <Link
+                    href="https://www.facebook.com/simplimuv"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <TiSocialFacebook size={24} />
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="https://api.whatsapp.com/send/?phone=2938749238&text&type=phone_number&app_absent=0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaWhatsapp size={24} />
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="https://www.instagram.com/simplimuv"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <TiSocialInstagram size={24} />
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="https://www.youtube.com/channel/UCJhw-X3I1qGE0BITzMPj3HQ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <TiSocialYoutube size={24} />
+                  </Link>
+                </li>
+              </ul>
+            </section>
+          </section>
         </div>
-        <hr className={styles.divisor} />
-        <div className={styles.legalLinks}>
-          <div className={styles.legalLinksWrap}>
-            <p className={styles.legalLink}>Defensa del consumidor</p>
+        <hr className={styles.divider} />
+        <section className={styles.legalSection}>
+          <div className={styles.legalLinks}>
+            <Link href="/">Defensa del consumidor</Link>
             <span className={styles.separator}>|</span>
-            <p className={styles.legalLink}>Términos y condiciones</p>
+            <Link href="/">Términos y condiciones</Link>
             <span className={styles.separator}>|</span>
-            <p className={styles.legalLink}>Politica de privacidad</p>
+            <Link href="/">Politica de privacidad</Link>
             <span className={styles.separator}>|</span>
-            <p className={styles.legalLink}>Sitemap</p>
+            <Link href="/">Sitemap</Link>
           </div>
-          <p className={styles.siteCopyright}>© 2023 SimpliMuv</p>
-        </div>
+          <Link href="/"className={styles.copyright}>© 2023 SimpliMuv</Link>
+        </section>
       </div>
     </footer>
   );

@@ -1,4 +1,4 @@
-.container {
+.footer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,12 +12,12 @@
   padding-bottom: 25px;
 }
 
-.divisor {
+.divider {
   width: 1110px;
   border-color: #261041;
 }
 
-.linksContainer {
+.linkSections {
   display: flex;
   justify-content: space-between;
   color: var(--white);
@@ -31,7 +31,7 @@
   color: var(--light-gray);
 }
 
-.links p {
+.links h4 {
   margin-bottom: 10px;  
 }
 
@@ -40,24 +40,29 @@
   line-height: 19.09px;
 }
 
+.linksList li {
+  margin-bottom: 10px;
+}
+
 .social {
   display: flex;
   justify-content: space-between;
   column-gap: 15px;
+  margin-top: 10px;
 }
 
-.legalLinks {
+.legalSection {
   display: flex;
   justify-content: space-between;
   margin-top: 25px;
 }
 
-.legalLinksWrap {
+.legalLinks {
   display: flex;
   align-items: center;
 }
 
-.legalLink {
+.legalLinks a {
   font-size: 12.8px;
   line-height: 15.28px;
   font-weight: 500;
@@ -72,7 +77,7 @@
   margin: 0 5px;
 }
 
-.siteCopyright {
+.copyright {
   font-size: 12.8px;
   line-height: 15.28px;
   font-weight: 500;

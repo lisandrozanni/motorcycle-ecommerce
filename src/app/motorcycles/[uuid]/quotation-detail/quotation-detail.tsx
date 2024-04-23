@@ -1,12 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Button from "@/app/components/button/button";
 import Image from "next/image";
 import { IoIosAdd } from "react-icons/io";
 import { MdDeleteForever } from "react-icons/md";
 import formatNumber from "@/app/lib/utils";
-import { AccessoryListProps, Accessory, AccessoryWithQuantity, QuotationDetailProps } from "@/app/lib/definitions";
+import { AccessoryListProps,
+  Accessory,
+  AccessoryWithQuantity,
+  QuotationDetailProps
+} from "@/app/lib/definitions";
 
 import styles from "./quotation-detail.module.css";
 import LeadForm from "../lead-form/lead-form";
@@ -16,7 +20,7 @@ function AccessoriesList({ accessories, onAddAccessory }: AccessoryListProps) {
     <section className={styles.accessoriesList}>
       {accessories.map((accessory) => (
         <div key={accessory.uuid} className={styles.accessoryCard}>
-          <div className={styles.infoCard}>
+          <div className={styles.accessoryInfo}>
             <Image
               src={accessory.variants[0].images[0].url}
               alt={accessory.name}
@@ -24,8 +28,8 @@ function AccessoriesList({ accessories, onAddAccessory }: AccessoryListProps) {
               height={150}
             />
             <div>
-              <p className={styles.cardTitle}>{accessory.name}</p>
-              <p className={styles.price}>${formatNumber(accessory.variants[0].prices[0].amount)}</p>
+              <p className={styles.accessoryName}>{accessory.name}</p>
+              <p className={styles.accessoryPrice}>${formatNumber(accessory.variants[0].prices[0].amount)}</p>
             </div>
           </div>
           <button onClick={() => onAddAccessory(accessory.uuid)}>
@@ -37,7 +41,13 @@ function AccessoriesList({ accessories, onAddAccessory }: AccessoryListProps) {
   );
 };
 
-function SelectedAccessories({ accessories, onRemoveAccessory }: { accessories: Accessory[], onRemoveAccessory: (uuid: number) => void }) {
+function SelectedAccessories({
+  accessories,
+  onRemoveAccessory,
+}: {
+  accessories: Accessory[];
+  onRemoveAccessory: (uuid: number) => void;
+}) {
   const groupedAccessories = groupAccessories(accessories);
 
   const accessoriesCost = groupedAccessories.reduce(
@@ -46,12 +56,17 @@ function SelectedAccessories({ accessories, onRemoveAccessory }: { accessories: 
   );
 
   return (
-    <section className={styles.selectedCardContainer}>
+    <section className={styles.selectedAccessoriesContainer}>
       <h2>Cantidad: {accessories.length}</h2>
       <h3>Total: ${formatNumber(accessoriesCost)}</h3>
       {groupedAccessories.map(({ accessory, quantity }) => (
-        <div key={accessory.uuid} className={styles.selectedCard}>
-          <span>{accessory.name} (x{quantity})</span>
+        <div
+          key={accessory.uuid}
+          className={styles.selectedAccessoryCard}
+        >
+          <span>
+            {accessory.name} (x{quantity})
+          </span>
           <button onClick={() => onRemoveAccessory(accessory.uuid)}>
             <MdDeleteForever size={30} color="red" />
           </button>
@@ -75,7 +90,12 @@ function groupAccessories(accessories: Accessory[]): AccessoryWithQuantity[] {
   return Object.values(accessoryMap);
 };
 
-export default function QuotationDetail({ motorcycleName, uuid, motorcyclePrice, accessories }: QuotationDetailProps) {
+export default function QuotationDetail({
+  motorcycleName,
+  uuid,
+  motorcyclePrice,
+  accessories,
+}: QuotationDetailProps) {
   const [stage, setStage] = useState("initial");
   const [selectedAccessories, setSelectedAccessories] = useState<Accessory[]>([]);
   const [accessoriesCost, setAccessoriesCost] = useState(0);
@@ -118,11 +138,20 @@ export default function QuotationDetail({ motorcycleName, uuid, motorcyclePrice,
     <section className={styles.container}>
       {stage === "initial" && (
         <>
-          <div className={styles.accessoriesContainer}>
-            <AccessoriesList accessories={accessories} onAddAccessory={addAccessory} />
-            <SelectedAccessories accessories={selectedAccessories} onRemoveAccessory={removeAccessory} />
-          </div>
-          <Button text="Solicitar cotización" onClick={advanceStage} />
+          <section className={styles.accessoriesContainer}>
+            <AccessoriesList 
+              accessories={accessories} 
+              onAddAccessory={addAccessory}
+            />
+            <SelectedAccessories
+              accessories={selectedAccessories}
+              onRemoveAccessory={removeAccessory}
+            />
+          </section>
+          <Button
+            text="Solicitar cotización"
+            onClick={advanceStage}
+          />
         </>
       )}
 
@@ -137,14 +166,18 @@ export default function QuotationDetail({ motorcycleName, uuid, motorcyclePrice,
     
             {groupedAccessories.map(({ accessory, quantity }) => (
               <div key={accessory.uuid} className={styles.quoteInfo}>
-                <p>{accessory.name} (x{quantity})</p>
-                <p>${formatNumber(accessory.variants[0].prices[0].amount * quantity)}</p>
+                <p>
+                  {accessory.name} (x{quantity})
+                </p>
+                <p>
+                  ${formatNumber(accessory.variants[0].prices[0].amount * quantity)}
+                </p>
               </div>
             ))}
           </div>
           <div className={styles.quoteInfo}>
-            <p className={styles.quotePrice}>Precio total</p>
-            <p className={styles.quoteValue}>${formattedPrice}</p>
+            <p className={styles.quoteTotalLabel}>Precio total</p>
+            <p className={styles.quoteTotal}>${formattedPrice}</p>
           </div>
           <Button text="Reservar" onClick={advanceStage} />
         </section>
