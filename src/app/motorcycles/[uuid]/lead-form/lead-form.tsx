@@ -1,12 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Button from "@/app/components/button/button";
 import { createLead } from "@/app/lib/data";
 
 import styles from "./lead-form.module.css";
 
 export default function LeadForm({ uuid }: { uuid: string }) {
+  const router = useRouter();
+
   const [form, setForm] = useState({
     firstname: "",
     email: "",
@@ -63,12 +66,14 @@ export default function LeadForm({ uuid }: { uuid: string }) {
         },
       };
 
+      router.push("/");
+
       try {
         // const response = await createLead(payload);
 
         // console.log(response);
       } catch (error) {
-        console.error("Error enviando datos:", error);
+        console.error("Error:", error);
       }
     }
   };

@@ -1,22 +1,19 @@
-FROM node:18-buster AS base
+FROM node:18-alpine AS build
 
-WORKDIR /src/app
-
-COPY package.json ./
-
-RUN npm install
-
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
 COPY . .
-
 RUN npm run build
 
-FROM node:18-buster AS runtime
+FROM node:18-alpine AS runtime
 
-WORKDIR /src/app
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+COPY --from=build /app/.next ./.next
+COPY --from=build /app/public ./public
 
-COPY --from=base /src/app/.next /src/app/.next
-COPY --from=base /src/app/node_modules /src/app/node_modules
-COPY --from=base /src/app/public /src/app/public
-COPY --from=base /src/app/package.json /src/app/package.json
-
+EXPOSE 3000
+USER node
 CMD ["npm", "start"]

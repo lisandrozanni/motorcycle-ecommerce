@@ -4,18 +4,21 @@ import { Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import Button from "@/app/components/button/button";
+import Spinner from "@/app/components/spinner/spinner";
 
 import styles from "./trank-you-page.module.css";
 
 export default function ThankYouPage() {
-  const searchParams = useSearchParams();
   const router = useRouter();
+  const searchParams = useSearchParams();
 
-  const name = searchParams.get("name");
-  const price = searchParams.get("price");
+  const params = new URLSearchParams(searchParams.toString());
+
+  const name = params.get("name");
+  const price = params.get("price");
 
   return (
-    <Suspense fallback={"Cargando..."}>
+    <Suspense fallback={<Spinner />}>
       <section className={styles.thankYouSection}>
         <header className={styles.thankYouHeader}>
           <IoMdCheckmarkCircleOutline size={40} color="#903DF7" />
@@ -24,7 +27,7 @@ export default function ThankYouPage() {
         </header>
         <section className={styles.purchaseSummary}>
           <h2 className={styles.summaryTitle}>Resumen de tu compra</h2>
-          <hr className={styles.divisor} />
+          <hr className={styles.divider} />
           <h3 className={styles.productsTitle}>Productos</h3>
           <div className={styles.productDetails}>
             <p>{name}</p>

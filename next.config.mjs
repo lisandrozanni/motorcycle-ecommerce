@@ -11,6 +11,9 @@ const nextConfig = {
   publicRuntimeConfig: {
     API_TOKEN: process.env.TOKEN,
     EXCHANGE_API_TOKEN: process.env.EXCHANGE_API_URL,
+  },
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
   }
 };
 

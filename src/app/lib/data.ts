@@ -114,7 +114,7 @@ export async function convertCurrency(amount: number, rate: string) {
     if (convertedRate) {
       return formatNumber(amount * convertedRate);
     } else {
-      console.error("Could not get exchange rate.");
+      console.error("No se pudo obtener el tipo de cambio.");
       
       return null;
     }

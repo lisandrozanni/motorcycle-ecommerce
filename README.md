@@ -1,6 +1,6 @@
 # E-commerce de motos
 
-La aplicación fue desarrollada con NextJS 14, donde se agregaron estilos usando los módulos CSS, y en algunos componentes se utilizó el framework Tailwind CSS.
+La aplicación fue desarrollada con NextJS 14 junto con TypeScript, donde se agregaron estilos usando los módulos CSS, y en algunos componentes se utilizó el framework Tailwind CSS.
 Para las llamadas a las API se usó la libería Axios.
 ## Ejecutar app
 

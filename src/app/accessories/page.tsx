@@ -1,8 +1,10 @@
+import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { getAccessories } from "@/app/lib/data";
 import formatNumber from "../lib/utils";
 import { AccessoryProps } from "../lib/definitions";
+import Spinner from "../components/spinner/spinner";
 
 import styles from "./accessories.module.css";
 
@@ -30,15 +32,17 @@ export default async function Accessories() {
   const accessories = await getAccessories();
 
   return (
-    <section className={styles.accessoryGrid}>
-      {accessories.map(({ name, uuid, variants }: AccessoryProps) => (
-        <Accessory
-          key={uuid}
-          name={name}
-          uuid={uuid}
-          variants={variants}
-        />
-      ))}
-    </section>
+    <Suspense fallback={<Spinner />}>
+      <section className={styles.accessoryGrid}>
+        {accessories.map(({ name, uuid, variants }: AccessoryProps) => (
+          <Accessory
+            key={uuid}
+            name={name}
+            uuid={uuid}
+            variants={variants}
+          />
+        ))}
+      </section>
+    </Suspense>
   );
 }
