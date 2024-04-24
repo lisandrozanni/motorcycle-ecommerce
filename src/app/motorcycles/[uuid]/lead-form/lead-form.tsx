@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Button from "@/app/components/button/button";
-import { createLead } from "@/app/lib/data";
 
 import styles from "./lead-form.module.css";
 
@@ -69,7 +68,7 @@ export default function LeadForm({ uuid }: { uuid: string }) {
       router.push("/");
 
       try {
-        // const response = await createLead(payload);
+        // const response = await fetch("/api/lead-form", options);
 
         // console.log(response);
       } catch (error) {

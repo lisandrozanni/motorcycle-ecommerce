@@ -21,7 +21,7 @@ function Motorcycle({ name, uuid, categories, variants }: MotorcyleProps) {
       <h3>{name}</h3>
       <div className={styles.priceContainer}>
         <span>ARG</span>
-        {/* <p className={styles.price}>${convertCurrency(price, "ARS")}</p> */}
+        <p className={styles.price}>${convertCurrency(price, "ARS")}</p>
       </div>
       <div className={styles.categoryContainer}>
         <BiCategoryAlt size={21} color="#903DF7" />
@@ -40,13 +40,13 @@ export default async function Motorcycles() {
       <section className={styles.grid}>
         {motorcycles.map(({ name, uuid, categories, variants }: MotorcyleProps) => (
           <Motorcycle
-          key={uuid}
-          name={name}
-          uuid={uuid}
-          categories={categories}
-          variants={variants}
+            key={uuid}
+            name={name}
+            uuid={uuid}
+            categories={categories}
+            variants={variants}
           />
-          ))}
+        ))}
       </section>
     </Suspense>
   );

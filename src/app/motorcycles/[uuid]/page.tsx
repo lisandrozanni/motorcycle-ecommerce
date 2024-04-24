@@ -20,8 +20,7 @@ export default async function MotorcycleDetail({
 
   const { name, images, description, price } = motorcycle ?? {};
 
-  // const convertedPrice = await convertCurrency(price || 0, "ARS");
-  const convertedPrice="123456";
+  const convertedPrice = await convertCurrency(price || 0, "ARS");
 
   return (
     <Suspense fallback={<Spinner />}>
