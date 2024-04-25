@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import axios from "axios";
 import { useRouter } from "next/navigation";
 import Button from "@/app/components/button/button";
+import { LeadFormProps } from "@/app/lib/definitions";
 
 import styles from "./lead-form.module.css";
 
-export default function LeadForm({ uuid }: { uuid: string }) {
-  const router = useRouter();
-
+export default function LeadForm({ uuid, motorcycleName, motorcyclePrice, accessories }: LeadFormProps) {
   const [form, setForm] = useState({
     firstname: "",
     email: "",
@@ -19,6 +19,8 @@ export default function LeadForm({ uuid }: { uuid: string }) {
     email: "",
     phone: "",
   });
+
+  const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -48,37 +50,31 @@ export default function LeadForm({ uuid }: { uuid: string }) {
     return !Object.values(newErrors).some((error) => error !== "");
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const FormAction = async (formData: FormData) => {
+    const rawFormData = {
+      uuid,
+      contact: {
+        firstname: formData.get("firstname"),
+        email: formData.get("email"),
+        phone: formData.get("phone")
+      }
+    };
 
     if (validateForm()) {
-      const payload = {
-        uuid,
-        accesories: ["alskjda92837942"],
-        contact: {
-          firstname: form.firstname,
-          lastname: "Zanni",
-          email: form.email,
-          phone: form.phone,
-          finace: true,
-          trade: false
-        },
-      };
-
-      router.push("/");
-
       try {
-        // const response = await fetch("/api/lead-form", options);
-
-        // console.log(response);
+        const response = await axios.post(`/motorcycles/${uuid}/api`, {
+          body: JSON.stringify(rawFormData)
+        });
+  
+        if (response.status === 200) router.push("/");
       } catch (error) {
-        console.error("Error:", error);
+        console.log("Error:", error);
       }
     }
-  };
+  }
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form action={FormAction} className={styles.form}>
       <label className={styles.label}>
         Nombre:
       </label>

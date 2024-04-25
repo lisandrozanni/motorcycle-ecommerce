@@ -12,10 +12,8 @@ export default function ThankYouPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const params = new URLSearchParams(searchParams.toString());
-
-  const name = params.get("name");
-  const price = params.get("price");
+  const name = searchParams.get("name");
+  const price = searchParams.get("price");
 
   return (
     <Suspense fallback={<Spinner />}>

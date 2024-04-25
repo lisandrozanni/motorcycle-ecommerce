@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from 'next/navigation'
+import { usePathname } from "next/navigation";
 
 import styles from "./navbar.module.css";
 
@@ -22,7 +22,7 @@ export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <Link href={"/"} className={styles.logo}>
-        <Image src="/Brand-Navbar.svg" width={144} height={30} alt="Logo" />
+        <Image src="/Brand-Navbar.svg" width={144} height={30} alt="Logo" priority />
       </Link>
       <div className={styles.links}>
         {links.map(({ name, href }) => (

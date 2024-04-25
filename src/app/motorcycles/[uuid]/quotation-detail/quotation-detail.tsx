@@ -183,7 +183,14 @@ export default function QuotationDetail({
         </section>
       )}
 
-      {stage === "form" && <LeadForm uuid={uuid} />}
+      {stage === "form" && (
+        <LeadForm
+          uuid={uuid}
+          motorcycleName={motorcycleName}
+          motorcyclePrice={motorcyclePrice}
+          accessories={selectedAccessories}
+        />
+      )}
     </section>
   );
 };

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import styles from "./home.module.css";
 
-export default async function Home() {
+export default async function HomePage() {
   return (
     <main className={styles.page}>
       <header>

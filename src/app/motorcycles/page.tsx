@@ -16,7 +16,7 @@ function Motorcycle({ name, uuid, categories, variants }: MotorcyleProps) {
   return (
     <Link href={`/motorcycles/${uuid}`} className={styles.item}>
       <div className={styles.imageContainer}>
-        <Image src={images[0].url} alt={name} width={225} height={128} className={styles.image} />
+        <Image src={images[0].url} alt={name} width={225} height={128} className={styles.image} priority />
       </div>
       <h3>{name}</h3>
       <div className={styles.priceContainer}>

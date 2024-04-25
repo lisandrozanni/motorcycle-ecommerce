@@ -7,7 +7,7 @@ import Spinner from "@/app/components/spinner/spinner";
 
 import styles from "./accessory-detail.module.css";
 
-export default async function AccessoryDetail({ params: { uuid } }: { params: { uuid: string } }) {
+export default async function AccessoryDetailPage({ params: { uuid } }: { params: { uuid: string } }) {
   const response = await getAccessoryDetail(uuid);
   
   const { name, image, description, price } = response ?? {};

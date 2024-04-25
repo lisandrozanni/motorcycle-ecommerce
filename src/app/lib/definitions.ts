@@ -76,16 +76,12 @@ export interface AccessoryDetail {
 
 export interface Contact {
   firstname: string;
-  lastname: string;
   email: string;
   phone: string;
-  finace: boolean;
-  trade: boolean;
 }
 
 export interface ApiPayload {
   uuid: string;
-  accesories: string[];
   contact: Contact;
 }
 
@@ -93,4 +89,12 @@ export interface ApiResponse {
   response: string;
   msg: string;
   code: number;
+}
+
+// Lead Form
+export interface LeadFormProps {
+  uuid: string;
+  motorcycleName?: string;
+  motorcyclePrice?: string;
+  accessories?: Accessory[];
 }

@@ -10,7 +10,7 @@ import Spinner from "@/app/components/spinner/spinner";
 
 import styles from "./motorcycle-detail.module.css";
 
-export default async function MotorcycleDetail({
+export default async function MotorcycleDetailPage({
   params: { uuid },
 }: {
   params: { uuid: string };

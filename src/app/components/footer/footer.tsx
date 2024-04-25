@@ -97,15 +97,15 @@ export default async function Footer() {
         <hr className={styles.divider} />
         <section className={styles.legalSection}>
           <div className={styles.legalLinks}>
-            <Link href="/">Defensa del consumidor</Link>
+            <Link href="#">Defensa del consumidor</Link>
             <span className={styles.separator}>|</span>
-            <Link href="/">Términos y condiciones</Link>
+            <Link href="#">Términos y condiciones</Link>
             <span className={styles.separator}>|</span>
-            <Link href="/">Politica de privacidad</Link>
+            <Link href="#">Politica de privacidad</Link>
             <span className={styles.separator}>|</span>
-            <Link href="/">Sitemap</Link>
+            <Link href="#">Sitemap</Link>
           </div>
-          <Link href="/"className={styles.copyright}>© 2023 SimpliMuv</Link>
+          <span className={styles.copyright}>© 2023 SimpliMuv</span>
         </section>
       </div>
     </footer>

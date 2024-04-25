@@ -16,7 +16,7 @@ function Accessory({ name, uuid, variants }: AccessoryProps) {
     <article>
       <Link href={`/accessories/${uuid}`} className={styles.accessoryLink}>
         <figure className={styles.imageWrapper}>
-          <Image src={images[0].url} alt={name} width={225} height={128} className={styles.accessoryImage} />
+          <Image src={images[0].url} alt={name} width={225} height={128} className={styles.accessoryImage} priority />
         </figure>
         <h3 className={styles.accessoryName}>{name}</h3>
         <div className={styles.priceContainer}>
@@ -28,7 +28,7 @@ function Accessory({ name, uuid, variants }: AccessoryProps) {
   );
 }
 
-export default async function Accessories() {
+export default async function AccessoriesPage() {
   const accessories = await getAccessories();
 
   return (
