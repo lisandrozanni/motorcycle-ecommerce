@@ -22,6 +22,7 @@ function Motorcycle({ name, uuid, categories, variants }: MotorcyleProps) {
       <div className={styles.priceContainer}>
         <span>ARG</span>
         <p className={styles.price}>${convertCurrency(price, "ARS")}</p>
+        <p className={styles.price}>$123.456</p>
       </div>
       <div className={styles.categoryContainer}>
         <BiCategoryAlt size={21} color="#903DF7" />

@@ -23,7 +23,7 @@ export default async function AccessoryDetailPage({ params: { uuid } }: { params
           <p className={styles.accessoryDescription}>{description}</p>
           <Link
             href={{
-              pathname: "/accessories/trank-you-page",
+              pathname: "/accessories/thank-you-page",
               query: {
                 name,
                 price: price && formatNumber(price)

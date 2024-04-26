@@ -90,11 +90,3 @@ export interface ApiResponse {
   msg: string;
   code: number;
 }
-
-// Lead Form
-export interface LeadFormProps {
-  uuid: string;
-  motorcycleName?: string;
-  motorcyclePrice?: string;
-  accessories?: Accessory[];
-}

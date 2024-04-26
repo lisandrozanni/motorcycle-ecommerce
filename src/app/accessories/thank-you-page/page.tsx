@@ -6,7 +6,7 @@ import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import Button from "@/app/components/button/button";
 import Spinner from "@/app/components/spinner/spinner";
 
-import styles from "./trank-you-page.module.css";
+import styles from "./thank-you-page.module.css";
 
 export default function ThankYouPage() {
   const router = useRouter();

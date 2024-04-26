@@ -125,7 +125,7 @@ export async function convertCurrency(amount: number, rate: string) {
   }
 }
 
-export async function createLead(payload: ApiPayload): Promise<ApiResponse> {
+export async function createLead(payload: ApiPayload): Promise<ApiResponse | null> {
   const headers = {
     Authorization: `Bearer ${apiToken}`,
     "Content-Type": "application/json"
@@ -136,6 +136,8 @@ export async function createLead(payload: ApiPayload): Promise<ApiResponse> {
 
     return response.data;
   } catch (error) {
-    throw error;
+    console.error("Error:", error);
+
+    return null;
   }
 }

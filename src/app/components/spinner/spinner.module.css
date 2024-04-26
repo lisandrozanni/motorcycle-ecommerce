@@ -3,7 +3,7 @@
   justify-self: center;
   width: 50px;
   padding: 8px;
-  margin-top: 30px;
+  margin: 100px;
   aspect-ratio: 1;
   border-radius: 50%;
   background: var(--primary-color);
@@ -19,6 +19,6 @@
 
 @keyframes l3 {
   to {
-    transform: rotate(1turn)
+    transform: rotate(1turn);
   }
 }

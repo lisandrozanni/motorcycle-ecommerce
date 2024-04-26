@@ -57,8 +57,8 @@ function SelectedAccessories({
 
   return (
     <section className={styles.selectedAccessoriesContainer}>
-      <h2>Cantidad: {accessories.length}</h2>
-      <h3>Total: ${formatNumber(accessoriesCost)}</h3>
+      <p>Cantidad: {accessories.length}</p>
+      <p>Total: ${formatNumber(accessoriesCost)}</p>
       {groupedAccessories.map(({ accessory, quantity }) => (
         <div
           key={accessory.uuid}
@@ -131,7 +131,19 @@ export default function QuotationDetail({
 
   const advanceStage = () => {
     if (stage === "initial") setStage("quote");
-    if (stage === "quote") setStage("form");
+
+    if (stage === "quote") {
+      const selectedProducts = {
+        motorcycleName,
+        motorcyclePrice,
+        accessories: groupedAccessories,
+        totalPrice: formattedPrice
+      };
+      
+      localStorage.setItem("products", JSON.stringify(selectedProducts));
+
+      setStage("form");
+    }
   };
 
   return (
@@ -183,14 +195,7 @@ export default function QuotationDetail({
         </section>
       )}
 
-      {stage === "form" && (
-        <LeadForm
-          uuid={uuid}
-          motorcycleName={motorcycleName}
-          motorcyclePrice={motorcyclePrice}
-          accessories={selectedAccessories}
-        />
-      )}
+      {stage === "form" && <LeadForm uuid={uuid} />}
     </section>
   );
 };

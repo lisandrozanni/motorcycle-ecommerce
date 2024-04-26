@@ -51,8 +51,7 @@
   max-height: 500px;
 }
 
-.selectedAccessoriesContainer h2,
-.selectedAccessoriesContainer h3 {
+.selectedAccessoriesContainer p {
   font-weight: 500;
   color: var(--dark-violet);
 }
@@ -108,6 +107,7 @@
   font-weight: 700;
   line-height: 19.09px;
   color: var(--secondary-color);
+  margin-bottom: 5px;
 }
 
 .quoteTotal {

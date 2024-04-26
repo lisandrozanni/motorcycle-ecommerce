@@ -30,8 +30,6 @@
 
 .purchaseSummary {
   display: flex;
-  justify-self: center;
-  align-items: center;
   flex-direction: column;
   width: 540px;
   border: 1px solid var(--light-gray);
@@ -50,21 +48,39 @@
   font-weight: 700;
   line-height: 19.36px;
   align-self: flex-start;
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 }
 
-.productDetails {
+.productsList {
+  margin-bottom: 16px;
+}
+
+.purchaseInfo {
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  margin-bottom: auto;
+  margin-bottom: 5px;
 }
 
-.products p {
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 18.15px;
-  color: rgba(0, 0, 0, 0.7);
+.totalPriceInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.totalPriceLabel {
+  font-weight: 700;
+  line-height: 19.09px;
+  color: var(--secondary-color);
+}
+
+.totalPrice {
+  font-weight: 700;
+  line-height: 19.09px;
+  color: var(--dark-violet);
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
 }
 
 .divider {
