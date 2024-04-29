@@ -26,9 +26,9 @@ export default function Navbar() {
       </Link>
       <div className={styles.links}>
         {links.map(({ name, href }) => (
-          <a key={name} href={href} className={pathname.includes(href) ? styles.activeLink : styles.link}>
+          <Link key={name} href={href} className={pathname.includes(href) ? styles.activeLink : styles.link}>
             <p>{name}</p>
-          </a>
+          </Link>
         ))}
       </div>
     </nav>
