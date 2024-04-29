@@ -1,11 +1,11 @@
-import { Suspense } from 'react';
+import { getAccessories } from '@/app/lib/data';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getAccessories } from '@/app/lib/data';
-import formatNumber from '../lib/utils';
-import { AccessoryProps } from '../lib/definitions';
-import Spinner from '../components/spinner/spinner';
+import { Suspense } from 'react';
 
+import Spinner from '../components/spinner/spinner';
+import { AccessoryProps } from '../lib/definitions';
+import formatNumber from '../lib/utils';
 import styles from './accessories.module.css';
 
 export function Accessory({ name, uuid, variants }: AccessoryProps) {

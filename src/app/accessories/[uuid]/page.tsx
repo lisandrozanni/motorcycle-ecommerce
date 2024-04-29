@@ -1,9 +1,9 @@
-import { Suspense } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import Spinner from '@/app/components/spinner/spinner';
 import { getAccessoryDetail } from '@/app/lib/data';
 import formatNumber from '@/app/lib/utils';
-import Spinner from '@/app/components/spinner/spinner';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Suspense } from 'react';
 
 import styles from './accessory-detail.module.css';
 

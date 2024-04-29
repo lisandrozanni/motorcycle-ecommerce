@@ -1,6 +1,7 @@
-import { render, screen } from '@testing-library/react';
-import { Accessory } from './page';
 import { AccessoryProps } from '@/app/lib/definitions';
+import { render, screen } from '@testing-library/react';
+
+import { Accessory } from './page';
 
 describe('Accessories page', () => {
   const mockAccessory: AccessoryProps = {

@@ -1,6 +1,7 @@
 import axios from 'axios';
-import formatNumber from './utils';
+
 import { AccessoryDetail, ApiPayload, ApiResponse, MotorcycleDetail } from './definitions';
+import formatNumber from './utils';
 
 const apiToken = process.env.API_TOKEN;
 const exchangeApiToken = process.env.EXCHANGE_API_TOKEN;

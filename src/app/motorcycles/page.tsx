@@ -1,11 +1,11 @@
-import { Suspense } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { BiCategoryAlt } from 'react-icons/bi';
 import { convertCurrency, getMotorcycles } from '@/app/lib/data';
 import { MotorcyleProps } from '@/app/lib/definitions';
-import Spinner from '../components/spinner/spinner';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Suspense } from 'react';
+import { BiCategoryAlt } from 'react-icons/bi';
 
+import Spinner from '../components/spinner/spinner';
 import styles from './motorcycles.module.css';
 
 export function Motorcycle({ name, uuid, categories, variants }: MotorcyleProps) {

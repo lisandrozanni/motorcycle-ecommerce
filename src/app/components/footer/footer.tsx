@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { TiSocialFacebook, TiSocialInstagram, TiSocialYoutube } from 'react-icons/ti';
 import { FaWhatsapp } from 'react-icons/fa';
+import { TiSocialFacebook, TiSocialInstagram, TiSocialYoutube } from 'react-icons/ti';
 
 import styles from './footer.module.css';
 

@@ -1,6 +1,7 @@
-import { render, screen, waitFor } from '@testing-library/react';
-import { Motorcycle } from './page';
 import { MotorcyleProps } from '@/app/lib/definitions';
+import { render, screen, waitFor } from '@testing-library/react';
+
+import { Motorcycle } from './page';
 
 jest.mock('../lib/data', () => ({
   convertCurrency: jest.fn().mockReturnValue('123.456'),

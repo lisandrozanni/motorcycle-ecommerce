@@ -1,12 +1,12 @@
 'use client';
 
-import { Suspense } from 'react';
-import { useRouter } from 'next/navigation';
-import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
 import Button from '@/app/components/button/button';
 import Spinner from '@/app/components/spinner/spinner';
 import { Accessory } from '@/app/lib/definitions';
 import formatNumber from '@/app/lib/utils';
+import { useRouter } from 'next/navigation';
+import { Suspense } from 'react';
+import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
 
 import styles from './thank-you-page.module.css';
 

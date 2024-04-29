@@ -1,14 +1,14 @@
 'use client';
 
-import { useState } from 'react';
 import Button from '@/app/components/button/button';
-import Image from 'next/image';
-import { IoIosAdd } from 'react-icons/io';
-import formatNumber from '@/app/lib/utils';
 import { AccessoryListProps, Accessory, AccessoryWithQuantity, QuotationSectionProps } from '@/app/lib/definitions';
-import LeadForm from '../lead-form/lead-form';
-
+import formatNumber from '@/app/lib/utils';
+import Image from 'next/image';
+import { useState } from 'react';
+import { IoIosAdd } from 'react-icons/io';
 import { MdDeleteForever } from 'react-icons/md';
+
+import LeadForm from '../lead-form/lead-form';
 import styles from './quotation-section.module.css';
 
 function AccessoriesList({ accessories, onAddAccessory }: AccessoryListProps) {

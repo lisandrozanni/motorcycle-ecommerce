@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 import { HiOutlineMinus } from 'react-icons/hi';
+import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 
 export default function Carousel({ slides }: { slides: string[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);

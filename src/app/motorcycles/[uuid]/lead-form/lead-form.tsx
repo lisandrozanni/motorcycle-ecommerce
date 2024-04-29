@@ -1,10 +1,10 @@
 'use client';
 
-import { useState } from 'react';
-import axios from 'axios';
-import { useRouter } from 'next/navigation';
 import Button from '@/app/components/button/button';
 import { Contact } from '@/app/lib/definitions';
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 import styles from './lead-form.module.css';
 
