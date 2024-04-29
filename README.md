@@ -9,7 +9,7 @@ Los pruebas unitarias fueron hechas con la libería react-testing-library.
 Sobre el directorio raíz del proyecto correr el comando:
 
 ```bash
-npm i && npm run dev
+npm i --force && npm run dev
 ```
 
 ## Ejecutar pruebas
