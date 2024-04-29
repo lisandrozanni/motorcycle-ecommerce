@@ -1,5 +1,5 @@
-import { NextRequest } from "next/server";
-import { createLead } from "@/app/lib/data";
+import { NextRequest } from 'next/server';
+import { createLead } from '@/app/lib/data';
 
 export async function POST(req: NextRequest) {
   const data = await req.json();

@@ -1,25 +1,15 @@
-import Image from "next/image";
-import Link from "next/link";
-import {
-  TiSocialFacebook,
-  TiSocialInstagram,
-  TiSocialYoutube
-} from "react-icons/ti";
-import { FaWhatsapp } from "react-icons/fa";
+import Image from 'next/image';
+import Link from 'next/link';
+import { TiSocialFacebook, TiSocialInstagram, TiSocialYoutube } from 'react-icons/ti';
+import { FaWhatsapp } from 'react-icons/fa';
 
-import styles from "./footer.module.css";
+import styles from './footer.module.css';
 
 export default async function Footer() {
   return (
     <footer className={styles.footer}>
       <div>
-        <Image
-          src="/Brand-Footer.svg"
-          width={144}
-          height={30}
-          alt="Logo"
-          className={styles.logo} 
-        />
+        <Image src="/Brand-Footer.svg" width={144} height={30} alt="Logo" className={styles.logo} />
         <hr className={styles.divider} />
         <div className={styles.linkSections}>
           <section className={styles.links}>
@@ -52,14 +42,10 @@ export default async function Footer() {
           <section className={styles.links}>
             <h4 className={styles.linkTitle}>Sobre nosotros</h4>
             <section>
-            <p>Contáctanos</p>
+              <p>Contáctanos</p>
               <ul className={styles.social}>
                 <li>
-                  <Link
-                    href="https://www.facebook.com/simplimuv"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <Link href="https://www.facebook.com/simplimuv" target="_blank" rel="noopener noreferrer">
                     <TiSocialFacebook size={24} />
                   </Link>
                 </li>
@@ -73,11 +59,7 @@ export default async function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="https://www.instagram.com/simplimuv"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <Link href="https://www.instagram.com/simplimuv" target="_blank" rel="noopener noreferrer">
                     <TiSocialInstagram size={24} />
                   </Link>
                 </li>

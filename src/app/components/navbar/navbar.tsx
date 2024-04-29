@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
-import styles from "./navbar.module.css";
+import styles from './navbar.module.css';
 
 interface NavbarLink {
   name: string;
@@ -12,8 +12,8 @@ interface NavbarLink {
 }
 
 const links: NavbarLink[] = [
-  { name: "Motos", href: "/motorcycles" },
-  { name: "Accesorios", href: "/accessories" },
+  { name: 'Motos', href: '/motorcycles' },
+  { name: 'Accesorios', href: '/accessories' },
 ];
 
 export default function Navbar() {
@@ -21,16 +21,12 @@ export default function Navbar() {
 
   return (
     <nav className={styles.navbar}>
-      <Link href={"/"} className={styles.logo}>
+      <Link href={'/'} className={styles.logo}>
         <Image src="/Brand-Navbar.svg" width={144} height={30} alt="Logo" priority />
       </Link>
       <div className={styles.links}>
         {links.map(({ name, href }) => (
-          <a
-            key={name} 
-            href={href}
-            className={pathname.includes(href) ? styles.activeLink : styles.link}
-          >
+          <a key={name} href={href} className={pathname.includes(href) ? styles.activeLink : styles.link}>
             <p>{name}</p>
           </a>
         ))}

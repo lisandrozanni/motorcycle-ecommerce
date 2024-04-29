@@ -28,7 +28,7 @@
 .imageWrapper {
   width: 225px;
   height: 128px;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .accessoryImage {
@@ -63,5 +63,5 @@
 .accessoryPrice {
   font-weight: 700;
   line-height: 23.87px;
-  color: var(--secondary-color);;
+  color: var(--secondary-color);
 }

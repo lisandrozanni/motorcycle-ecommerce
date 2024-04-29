@@ -1,8 +1,8 @@
-"use client"
+'use client';
 
-import { useState } from "react";
-import { SlArrowLeft, SlArrowRight } from "react-icons/sl"
-import { HiOutlineMinus } from "react-icons/hi";
+import { useState } from 'react';
+import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
+import { HiOutlineMinus } from 'react-icons/hi';
 
 export default function Carousel({ slides }: { slides: string[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -24,32 +24,25 @@ export default function Carousel({ slides }: { slides: string[] }) {
   };
 
   return (
-    <div className="max-w-[635px] h-[307px] w-full px-4 mb-12 relative group">
+    <div className="group relative mb-12 h-[307px] w-full max-w-[635px] px-4">
       <div
-        style={{ 
+        style={{
           backgroundImage: `url(${slides[currentIndex]})`,
-          border: "1px solid #EDEDED",
-          backgroundPosition: "center",
+          border: '1px solid #EDEDED',
+          backgroundPosition: 'center',
         }}
-        className="w-full h-full rounded-lg bg-no-repeat duration-500"
+        className="h-full w-full rounded-lg bg-no-repeat duration-500"
       ></div>
-      <div className="group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 cursor-pointer">
+      <div className="absolute left-5 top-[50%] -translate-x-0 translate-y-[-50%] cursor-pointer rounded-full p-2 text-2xl group-hover:block">
         <SlArrowLeft onClick={prevSlide} size={24} color="#903DF7" />
       </div>
-      <div className="group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 cursor-pointer">
+      <div className="absolute right-5 top-[50%] -translate-x-0 translate-y-[-50%] cursor-pointer rounded-full p-2 text-2xl group-hover:block">
         <SlArrowRight onClick={nextSlide} size={24} color="#903DF7" />
       </div>
-      <div className="flex top-4 justify-center">
+      <div className="top-4 flex justify-center">
         {slides.map((slide, slideIndex) => (
-          <div
-            key={slideIndex}
-            onClick={() => goToSlide(slideIndex)}
-            className="text-2xl cursor-pointer"
-          >
-            <HiOutlineMinus
-              size={30}
-              color={slideIndex === currentIndex ? "#903DF7" : "#EDEDED"}
-            />
+          <div key={slideIndex} onClick={() => goToSlide(slideIndex)} className="cursor-pointer text-2xl">
+            <HiOutlineMinus size={30} color={slideIndex === currentIndex ? '#903DF7' : '#EDEDED'} />
           </div>
         ))}
       </div>

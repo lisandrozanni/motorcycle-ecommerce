@@ -1,15 +1,15 @@
-import { Suspense } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { BiCategoryAlt } from "react-icons/bi";
-import { convertCurrency, getMotorcycles } from "@/app/lib/data";
-import { MotorcyleProps } from "@/app/lib/definitions";
-import Spinner from "../components/spinner/spinner";
+import { Suspense } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { BiCategoryAlt } from 'react-icons/bi';
+import { convertCurrency, getMotorcycles } from '@/app/lib/data';
+import { MotorcyleProps } from '@/app/lib/definitions';
+import Spinner from '../components/spinner/spinner';
 
-import styles from "./motorcycles.module.css";
+import styles from './motorcycles.module.css';
 
-function Motorcycle({ name, uuid, categories, variants }: MotorcyleProps) {
-  const categoryNames = categories.map(category => category.name).join(", ");
+export function Motorcycle({ name, uuid, categories, variants }: MotorcyleProps) {
+  const categoryNames = categories.map((category) => category.name).join(', ');
   const { prices, images } = variants[0];
   const price = prices[0].amount;
 
@@ -21,8 +21,7 @@ function Motorcycle({ name, uuid, categories, variants }: MotorcyleProps) {
       <h3>{name}</h3>
       <div className={styles.priceContainer}>
         <span>ARG</span>
-        <p className={styles.price}>${convertCurrency(price, "ARS")}</p>
-        <p className={styles.price}>$123.456</p>
+        <p className={styles.price}>${convertCurrency(price, 'ARS')}</p>
       </div>
       <div className={styles.categoryContainer}>
         <BiCategoryAlt size={21} color="#903DF7" />
@@ -40,13 +39,7 @@ export default async function Motorcycles() {
     <Suspense fallback={<Spinner />}>
       <section className={styles.grid}>
         {motorcycles.map(({ name, uuid, categories, variants }: MotorcyleProps) => (
-          <Motorcycle
-            key={uuid}
-            name={name}
-            uuid={uuid}
-            categories={categories}
-            variants={variants}
-          />
+          <Motorcycle key={uuid} name={name} uuid={uuid} categories={categories} variants={variants} />
         ))}
       </section>
     </Suspense>

@@ -1,26 +1,18 @@
-import { Suspense } from "react";
-import {
-  convertCurrency,
-  getAccessories,
-  getMotorcycleDetail
-} from "@/app/lib/data";
-import Carousel from "@/app/components/carousel/carousel";
-import QuotationDetail from "./quotation-detail/quotation-detail";
-import Spinner from "@/app/components/spinner/spinner";
+import { Suspense } from 'react';
+import { convertCurrency, getAccessories, getMotorcycleDetail } from '@/app/lib/data';
+import Carousel from '@/app/components/carousel/carousel';
+import QuotationSection from './quotation-section/quotation-section';
+import Spinner from '@/app/components/spinner/spinner';
 
-import styles from "./motorcycle-detail.module.css";
+import styles from './motorcycle-detail.module.css';
 
-export default async function MotorcycleDetailPage({
-  params: { uuid },
-}: {
-  params: { uuid: string };
-}) {
+export default async function MotorcycleDetailPage({ params: { uuid } }: { params: { uuid: string } }) {
   const motorcycle = await getMotorcycleDetail(uuid);
   const accessories = await getAccessories();
 
   const { name, images, description, price } = motorcycle ?? {};
 
-  const convertedPrice = await convertCurrency(price || 0, "ARS");
+  const convertedPrice = await convertCurrency(price || 0, 'ARS');
 
   return (
     <Suspense fallback={<Spinner />}>
@@ -32,9 +24,10 @@ export default async function MotorcycleDetailPage({
         </div>
 
         <div className={styles.quotationSection}>
-          <QuotationDetail
+          <QuotationSection
             motorcycleName={name}
-            uuid={uuid} motorcyclePrice={convertedPrice || ""}
+            uuid={uuid}
+            motorcyclePrice={convertedPrice || ''}
             motorcycleDescription={description}
             accessories={accessories}
           />

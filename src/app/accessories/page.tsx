@@ -1,14 +1,14 @@
-import { Suspense } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { getAccessories } from "@/app/lib/data";
-import formatNumber from "../lib/utils";
-import { AccessoryProps } from "../lib/definitions";
-import Spinner from "../components/spinner/spinner";
+import { Suspense } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { getAccessories } from '@/app/lib/data';
+import formatNumber from '../lib/utils';
+import { AccessoryProps } from '../lib/definitions';
+import Spinner from '../components/spinner/spinner';
 
-import styles from "./accessories.module.css";
+import styles from './accessories.module.css';
 
-function Accessory({ name, uuid, variants }: AccessoryProps) {
+export function Accessory({ name, uuid, variants }: AccessoryProps) {
   const { prices, images } = variants[0];
   const price = prices[0].amount;
 
@@ -35,12 +35,7 @@ export default async function AccessoriesPage() {
     <Suspense fallback={<Spinner />}>
       <section className={styles.accessoryGrid}>
         {accessories.map(({ name, uuid, variants }: AccessoryProps) => (
-          <Accessory
-            key={uuid}
-            name={name}
-            uuid={uuid}
-            variants={variants}
-          />
+          <Accessory key={uuid} name={name} uuid={uuid} variants={variants} />
         ))}
       </section>
     </Suspense>

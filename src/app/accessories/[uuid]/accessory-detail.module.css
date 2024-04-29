@@ -1,7 +1,6 @@
 .accessoryDetail {
   display: flex;
   justify-content: center;
-  align-items: center;
   padding: 30px 100px;
 }
 
@@ -50,7 +49,9 @@
   font-weight: 500;
   line-height: 19.09px;
   color: var(--white);
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .purchaseLink:hover {

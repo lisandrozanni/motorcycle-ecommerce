@@ -29,7 +29,7 @@ export interface AccessoryProps {
   }[];
 }
 
-// Quotation Detail page
+// Quotation Section page
 export interface Accessory {
   name: string;
   uuid: number;
@@ -51,7 +51,7 @@ export interface AccessoryWithQuantity {
   quantity: number;
 }
 
-export interface QuotationDetailProps {
+export interface QuotationSectionProps {
   motorcycleName?: string;
   uuid: string;
   motorcyclePrice?: string;

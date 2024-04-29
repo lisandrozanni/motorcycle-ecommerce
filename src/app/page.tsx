@@ -1,12 +1,18 @@
-import Image from "next/image";
+import Image from 'next/image';
 
-import styles from "./home.module.css";
+import styles from './home.module.css';
 
 export default async function HomePage() {
   return (
     <main className={styles.page}>
       <header>
-        <Image src="/Home.svg" width={1110} height={405} alt="Imagen principal de Inicio" className={styles.headerImage} />
+        <Image
+          src="/Home.svg"
+          width={1110}
+          height={405}
+          alt="Imagen principal de Inicio"
+          className={styles.headerImage}
+        />
       </header>
       <main className={styles.content}>
         <h1 className={styles.mainTitle}>E-commerce de motos</h1>

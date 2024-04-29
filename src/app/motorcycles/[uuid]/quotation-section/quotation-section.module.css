@@ -51,9 +51,21 @@
   max-height: 500px;
 }
 
+.selectedAccessoriesContainer h2 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 23.87px;
+  color: var(--dark-violet);
+}
+
 .selectedAccessoriesContainer p {
   font-weight: 500;
   color: var(--dark-violet);
+}
+
+.divider {
+  border-color: var(--light-gray);
+  margin: 15px 0 15px;
 }
 
 .selectedAccessoryCard {

@@ -1,19 +1,15 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Button from "@/app/components/button/button";
-import Image from "next/image";
-import { IoIosAdd } from "react-icons/io";
-import { MdDeleteForever } from "react-icons/md";
-import formatNumber from "@/app/lib/utils";
-import { AccessoryListProps,
-  Accessory,
-  AccessoryWithQuantity,
-  QuotationDetailProps
-} from "@/app/lib/definitions";
+import { useState } from 'react';
+import Button from '@/app/components/button/button';
+import Image from 'next/image';
+import { IoIosAdd } from 'react-icons/io';
+import formatNumber from '@/app/lib/utils';
+import { AccessoryListProps, Accessory, AccessoryWithQuantity, QuotationSectionProps } from '@/app/lib/definitions';
+import LeadForm from '../lead-form/lead-form';
 
-import styles from "./quotation-detail.module.css";
-import LeadForm from "../lead-form/lead-form";
+import { MdDeleteForever } from 'react-icons/md';
+import styles from './quotation-section.module.css';
 
 function AccessoriesList({ accessories, onAddAccessory }: AccessoryListProps) {
   return (
@@ -21,12 +17,7 @@ function AccessoriesList({ accessories, onAddAccessory }: AccessoryListProps) {
       {accessories.map((accessory) => (
         <div key={accessory.uuid} className={styles.accessoryCard}>
           <div className={styles.accessoryInfo}>
-            <Image
-              src={accessory.variants[0].images[0].url}
-              alt={accessory.name}
-              width={150}
-              height={150}
-            />
+            <Image src={accessory.variants[0].images[0].url} alt={accessory.name} width={150} height={150} />
             <div>
               <p className={styles.accessoryName}>{accessory.name}</p>
               <p className={styles.accessoryPrice}>${formatNumber(accessory.variants[0].prices[0].amount)}</p>
@@ -39,7 +30,7 @@ function AccessoriesList({ accessories, onAddAccessory }: AccessoryListProps) {
       ))}
     </section>
   );
-};
+}
 
 function SelectedAccessories({
   accessories,
@@ -52,29 +43,27 @@ function SelectedAccessories({
 
   const accessoriesCost = groupedAccessories.reduce(
     (total, { accessory, quantity }) => total + accessory.variants[0].prices[0].amount * quantity,
-    0
+    0,
   );
 
   return (
     <section className={styles.selectedAccessoriesContainer}>
-      <p>Cantidad: {accessories.length}</p>
+      <h2>Accesorios agregados: {accessories.length}</h2>
+      <hr className={styles.divider} />
       <p>Total: ${formatNumber(accessoriesCost)}</p>
       {groupedAccessories.map(({ accessory, quantity }) => (
-        <div
-          key={accessory.uuid}
-          className={styles.selectedAccessoryCard}
-        >
+        <div key={accessory.uuid} className={styles.selectedAccessoryCard}>
           <span>
             {accessory.name} (x{quantity})
           </span>
           <button onClick={() => onRemoveAccessory(accessory.uuid)}>
-            <MdDeleteForever size={30} color="red" />
+            <MdDeleteForever size={30} color="#dc2626" />
           </button>
         </div>
       ))}
     </section>
   );
-};
+}
 
 function groupAccessories(accessories: Accessory[]): AccessoryWithQuantity[] {
   const accessoryMap: { [key: number]: AccessoryWithQuantity } = {};
@@ -88,19 +77,19 @@ function groupAccessories(accessories: Accessory[]): AccessoryWithQuantity[] {
   });
 
   return Object.values(accessoryMap);
-};
+}
 
-export default function QuotationDetail({
+export default function QuotationSection({
   motorcycleName,
   uuid,
   motorcyclePrice,
   accessories,
-}: QuotationDetailProps) {
-  const [stage, setStage] = useState("initial");
+}: QuotationSectionProps) {
+  const [stage, setStage] = useState('initial');
   const [selectedAccessories, setSelectedAccessories] = useState<Accessory[]>([]);
   const [accessoriesCost, setAccessoriesCost] = useState(0);
 
-  const converterPrice = parseFloat((motorcyclePrice || "").replace(/\./g, ""));
+  const converterPrice = parseFloat((motorcyclePrice || '').replace(/\./g, ''));
   const priceTotal = converterPrice + accessoriesCost;
   const formattedPrice = formatNumber(priceTotal);
 
@@ -130,44 +119,35 @@ export default function QuotationDetail({
   const groupedAccessories = groupAccessories(selectedAccessories);
 
   const advanceStage = () => {
-    if (stage === "initial") setStage("quote");
+    if (stage === 'initial') setStage('quote');
 
-    if (stage === "quote") {
+    if (stage === 'quote') {
       const selectedProducts = {
         motorcycleName,
         motorcyclePrice,
         accessories: groupedAccessories,
-        totalPrice: formattedPrice
+        totalPrice: formattedPrice,
       };
-      
-      localStorage.setItem("products", JSON.stringify(selectedProducts));
 
-      setStage("form");
+      localStorage.setItem('products', JSON.stringify(selectedProducts));
+
+      setStage('form');
     }
   };
 
   return (
     <section className={styles.container}>
-      {stage === "initial" && (
+      {stage === 'initial' && (
         <>
           <section className={styles.accessoriesContainer}>
-            <AccessoriesList 
-              accessories={accessories} 
-              onAddAccessory={addAccessory}
-            />
-            <SelectedAccessories
-              accessories={selectedAccessories}
-              onRemoveAccessory={removeAccessory}
-            />
+            <AccessoriesList accessories={accessories} onAddAccessory={addAccessory} />
+            <SelectedAccessories accessories={selectedAccessories} onRemoveAccessory={removeAccessory} />
           </section>
-          <Button
-            text="Solicitar cotización"
-            onClick={advanceStage}
-          />
+          <Button text="Solicitar cotización" onClick={advanceStage} />
         </>
       )}
 
-      {stage === "quote" && (
+      {stage === 'quote' && (
         <section>
           <div className={styles.quoteContainer}>
             <h2 className={styles.quoteTitle}>Detalle de la cotización</h2>
@@ -175,15 +155,13 @@ export default function QuotationDetail({
               <p>{motorcycleName}</p>
               <p>${motorcyclePrice}</p>
             </div>
-    
+
             {groupedAccessories.map(({ accessory, quantity }) => (
               <div key={accessory.uuid} className={styles.quoteInfo}>
                 <p>
                   {accessory.name} (x{quantity})
                 </p>
-                <p>
-                  ${formatNumber(accessory.variants[0].prices[0].amount * quantity)}
-                </p>
+                <p>${formatNumber(accessory.variants[0].prices[0].amount * quantity)}</p>
               </div>
             ))}
           </div>
@@ -195,7 +173,7 @@ export default function QuotationDetail({
         </section>
       )}
 
-      {stage === "form" && <LeadForm uuid={uuid} />}
+      {stage === 'form' && <LeadForm uuid={uuid} />}
     </section>
   );
-};
+}

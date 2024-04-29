@@ -13,8 +13,8 @@ const nextConfig = {
     EXCHANGE_API_TOKEN: process.env.EXCHANGE_API_URL,
   },
   experimental: {
-    missingSuspenseWithCSRBailout: false
-  }
+    missingSuspenseWithCSRBailout: false,
+  },
 };
 
 export default nextConfig;
