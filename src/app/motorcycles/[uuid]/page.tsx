@@ -2,9 +2,9 @@ import Carousel from '@/app/components/carousel/carousel';
 import Spinner from '@/app/components/spinner/spinner';
 import { convertCurrency, getAccessories, getMotorcycleDetail } from '@/app/lib/data';
 import { Suspense } from 'react';
+import QuotationSection from './quotation-section/quotation-section';
 
 import styles from './motorcycle-detail.module.css';
-import QuotationSection from './quotation-section/quotation-section';
 
 export default async function MotorcycleDetailPage({ params: { uuid } }: { params: { uuid: string } }) {
   const motorcycle = await getMotorcycleDetail(uuid);

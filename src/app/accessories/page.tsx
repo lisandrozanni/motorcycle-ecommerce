@@ -1,11 +1,9 @@
 import { getAccessories } from '@/app/lib/data';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Suspense } from 'react';
-
-import Spinner from '../components/spinner/spinner';
 import { AccessoryProps } from '../lib/definitions';
 import formatNumber from '../lib/utils';
+
 import styles from './accessories.module.css';
 
 export function Accessory({ name, uuid, variants }: AccessoryProps) {
@@ -32,12 +30,10 @@ export default async function AccessoriesPage() {
   const accessories = await getAccessories();
 
   return (
-    <Suspense fallback={<Spinner />}>
-      <section className={styles.accessoryGrid}>
-        {accessories.map(({ name, uuid, variants }: AccessoryProps) => (
-          <Accessory key={uuid} name={name} uuid={uuid} variants={variants} />
-        ))}
-      </section>
-    </Suspense>
+    <section className={styles.accessoryGrid}>
+      {accessories.map(({ name, uuid, variants }: AccessoryProps) => (
+        <Accessory key={uuid} name={name} uuid={uuid} variants={variants} />
+      ))}
+    </section>
   );
 }

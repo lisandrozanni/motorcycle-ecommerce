@@ -91,17 +91,34 @@ export default function LeadForm({ uuid }: { uuid: string }) {
         onChange={handleChange}
         className={styles.input}
         id="firstname"
+        placeholder="Juan"
       />
       {errors.firstname && <span className={styles.error}>{errors.firstname}</span>}
       <label className={styles.label} htmlFor="email">
         Correo electrónico:
       </label>
-      <input type="email" name="email" value={form.email} onChange={handleChange} className={styles.input} id="email" />
+      <input
+        type="email"
+        name="email"
+        value={form.email}
+        onChange={handleChange}
+        className={styles.input}
+        id="email"
+        placeholder="juan@gmail.com"
+      />
       {errors.email && <span className={styles.error}>{errors.email}</span>}
       <label className={styles.label} htmlFor="phone">
         Teléfono:
       </label>
-      <input type="text" name="phone" value={form.phone} onChange={handleChange} className={styles.input} id="phone" />
+      <input
+        type="text"
+        name="phone"
+        value={form.phone}
+        onChange={handleChange}
+        className={styles.input}
+        id="phone"
+        placeholder="11 3221 9220"
+      />
       {errors.phone && <span className={styles.error}>{errors.phone}</span>}
       <Button text="Contactar" type="submit" />
     </form>
